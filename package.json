@@ -1,0 +1,38 @@
+{
+  "name": "food-truck-fiscal",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/camera": "^8.2.6",
+    "@capacitor/geolocation": "^8.2.4",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@supabase/supabase-js": "^2.118.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leticiaa2008/food-fotos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leticiaa2008/food-fotos/issues"
+  },
+  "homepage": "https://github.com/leticiaa2008/food-fotos#readme",
+  "description": ""
+}

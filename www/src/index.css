@@ -1,0 +1,41 @@
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #282d25;
+  background: #fffaf1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}

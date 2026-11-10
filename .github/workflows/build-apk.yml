@@ -1,0 +1,62 @@
+
+name: Construir APK Android (Capacitor)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Gerar APK de Depuracao (Debug)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Instalar Dependencias
+        run: npm install
+
+      - name: Configurar Java JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compilar React
+        run: npm run build
+
+      - name: Conferir arquivos gerados
+        run: |
+          ls -la dist
+          test -f dist/index.html
+
+      - name: Sincronizar Capacitor com Android
+        run: npx cap sync android
+
+      - name: Permissao de Execucao do Gradle
+        run: chmod +x android/gradlew
+
+      - name: Compilar APK com Gradle
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: Publicar APK para Download
+        uses: actions/upload-artifact@v4
+        with:
+          name: meu-aplicativo-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 7
